@@ -1,5 +1,5 @@
 # Ghala Alqahtani — Personal Portfolio Website
-### Assignment 4 · SWE Course · KFUPM
+### Assignment 4 · SWE363
 
 A fully responsive, production-quality personal portfolio website showcasing software engineering projects, research work, and technical skills.
 
