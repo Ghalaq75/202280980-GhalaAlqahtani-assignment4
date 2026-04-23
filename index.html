@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ghala Alqahtani – Software Engineering Student at KFUPM. Researcher building secure, intelligent solutions.">
+    <title>Ghala Alqahtani | Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">Ghala Alqahtani</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about"    data-en="About"    data-ar="عني">About</a></li>
+                <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                <li><a href="#github"   data-en="GitHub"  >GitHub</a></li>
+                <li><a href="#contact"  data-en="Contact"  data-ar="تواصل">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="lang-toggle" id="langToggle" aria-label="Switch to Arabic" title="Switch language">
+                <span class="lang-label">ع</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="greeting" id="greeting">Hello!</h1>
+                <h2 class="hero-title" data-en="I'm Ghala Alqahtani" data-ar="أنا غلا القحطاني">I'm Ghala Alqahtani</h2>
+                <p class="hero-tagline" data-en="Software Engineering Student · AI Researcher · Building Secure & Intelligent Solutions" data-ar="طالبة هندسة برمجيات · باحثة في مجال علوم الحاسب">Software Engineering Student · AI Researcher · Building Secure & Intelligent Solutions</p>
+
+                <!-- Quote Box (API-powered) -->
+                <div class="quote-box" id="quoteBox" role="region" aria-label="Inspirational quote">
+                    <div class="quote-loading" id="quoteLoading">
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                        <span class="loading-text">Fetching inspiration...</span>
+                    </div>
+                    <div class="quote-content" id="quoteContent" style="display:none;">
+                        <p class="quote-text" id="quoteText"></p>
+                        <p class="quote-author" id="quoteAuthor"></p>
+                    </div>
+                    <div class="quote-error" id="quoteError" style="display:none;">
+                        <p>✦ Could not load quote. <button class="retry-btn" id="retryQuote">Try again</button></p>
+                    </div>
+                    <button class="new-quote-btn" id="newQuoteBtn" style="display:none;">New Quote ↻</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-en="About Me" data-ar="نبذة عني">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/images/profile.jpg"
+                         alt="Ghala Alqahtani – Software Engineering Student"
+                         class="profile-img"
+                         loading="lazy"
+                         width="200" height="200">
+                </div>
+                <div class="about-text">
+                    <p data-en="I'm a Software Engineering student at KFUPM with a strong programming foundation, passionate about applying AI technologies to develop secure, real-world software solutions. My research interests include digital psychiatry and machine learning." data-ar="أنا طالبة هندسة برمجيات في جامعة الملك فهد للبترول والمعادن، أمتلك أساساً برمجياً متيناً، وأسعى لتطوير حلول برمجية آمنة وذكية. تشمل اهتماماتي البحثية الطب النفسي الرقمي وتعلم الآلة.">I'm a Software Engineering student at KFUPM with a strong programming foundation, passionate about applying AI technologies to develop secure, real-world software solutions. My research interests include digital psychiatry and machine learning.</p>
+                    <div class="skills-tags">
+                        <span class="tag">Software Engineering</span>
+                        <span class="tag">AI & Machine Learning</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Database Systems</span>
+                        <span class="tag">Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-en="My Projects" data-ar="مشاريعي">My Projects</h2>
+
+            <!-- Filter & Sort Controls -->
+            <div class="project-controls">
+
+                <!-- Search Bar -->
+                <div class="search-wrapper">
+                    <div class="search-bar">
+                        <span class="search-icon" aria-hidden="true">🔍</span>
+                        <input
+                            type="text"
+                            id="projectSearch"
+                            placeholder="Search by name or technology..."
+                            data-en-placeholder="Search by name or technology..."
+                            data-ar-placeholder="ابحث بالاسم أو التقنية..."
+                            autocomplete="off"
+                            aria-label="Search projects"
+                        >
+                        <button class="clear-search" id="clearSearch" aria-label="Clear search" style="display:none;">✕</button>
+                    </div>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="filter-buttons" role="group" aria-label="Filter projects by category">
+                    <button class="filter-btn active" data-filter="all"     data-en="All"      data-ar="الكل">All</button>
+                    <button class="filter-btn"         data-filter="java"    data-en="Java"     data-ar="جافا">Java</button>
+                    <button class="filter-btn"         data-filter="ai"      data-en="AI / ML"  data-ar="ذكاء اصطناعي">AI / ML</button>
+                    <button class="filter-btn"         data-filter="design"  data-en="Design"   data-ar="تصميم">Design</button>
+                    <button class="filter-btn"         data-filter="research" data-en="Research" data-ar="بحث">Research</button>
+                </div>
+
+                <!-- Sort + Results Row -->
+                <div class="controls-row">
+                    <p class="search-results-count" id="searchCount" aria-live="polite"></p>
+                    <div class="sort-wrapper">
+                        <label for="sortSelect" data-en="Sort by:" data-ar="ترتيب:">Sort by:</label>
+                        <select id="sortSelect" aria-label="Sort projects">
+                            <option value="default">Default</option>
+                            <option value="az">A → Z</option>
+                            <option value="za">Z → A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+
+                <article class="project-card"
+                    data-title="Distributed Storage System"
+                    data-tags="java socket programming multi-threading distributed storage fault tolerance"
+                    data-category="java"
+                    data-year="2025">
+                    <div class="project-image">
+                        <img src="assets/images/project1.jpg" alt="Distributed Storage System Architecture" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Distributed Storage System</h3>
+                        <p>Built a multi-threaded distributed storage system using socket programming, supporting file storage, retrieval, and fault tolerance with parity-based recovery mechanisms.</p>
+                        <div class="project-tags">
+                            <span class="tag-small">Java</span>
+                            <span class="tag-small">Socket Programming</span>
+                            <span class="tag-small">Multi-threading</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card"
+                    data-title="Sun Devil Dining System"
+                    data-tags="java uml design pub-sub pattern dining subscription publisher subscriber"
+                    data-category="java"
+                    data-year="2024">
+                    <div class="project-image">
+                        <img src="assets/images/project2.jpg" alt="Sun Devil Dining Subscription System" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Sun Devil Dining System</h3>
+                        <p>Designed and implemented a publisher-subscriber system in Java to match diners with restaurant availability using UML-based software analysis and design principles.</p>
+                        <div class="project-tags">
+                            <span class="tag-small">Java</span>
+                            <span class="tag-small">UML Design</span>
+                            <span class="tag-small">Pub-Sub Pattern</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card"
+                    data-title="KFUPM Events Management System"
+                    data-tags="software design uml prototyping events management university requirements"
+                    data-category="design"
+                    data-year="2024">
+                    <div class="project-image">
+                        <img src="assets/images/project3.jpg" alt="KFUPM Events Management System Interface" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>KFUPM Events Management System</h3>
+                        <p>Collaborated on designing and prototyping a centralized university events platform, producing comprehensive requirements, UML diagrams, and a usability-focused prototype.</p>
+                        <div class="project-tags">
+                            <span class="tag-small">Software Design</span>
+                            <span class="tag-small">UML</span>
+                            <span class="tag-small">Prototyping</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card"
+                    data-title="Digital Psychiatry Research"
+                    data-tags="machine learning ai research digital psychiatry diagnosis algorithms published"
+                    data-category="ai research"
+                    data-year="2025">
+                    <div class="project-image">
+                        <img src="assets/images/project4.jpg" alt="Digital Psychiatry AI Research" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Digital Psychiatry Research</h3>
+                        <p>Conducting research on embedding AI in digital diagnosis to enhance detection accuracy. Analyzing patient symptoms using machine learning algorithms. Published in KFUPM Journal.</p>
+                        <div class="project-tags">
+                            <span class="tag-small">Machine Learning</span>
+                            <span class="tag-small">AI</span>
+                            <span class="tag-small">Research</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="emptyState" style="display:none;" role="status">
+                <p class="empty-icon">🔎</p>
+                <p class="empty-title">No projects found</p>
+                <p class="empty-subtitle">Try a different keyword, like "Java", "AI", or "UML".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Repos Section (API) -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <h2 class="section-title" data-en="GitHub Repositories" >GitHub Repositories</h2>
+            <p class="section-sub" data-en="Live data pulled from GitHub API" data-ar="بيانات مباشرة من GitHub API">Live data pulled from GitHub API</p>
+
+            <div class="github-loading" id="githubLoading">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-text">Loading repositories...</span>
+            </div>
+
+            <div class="github-grid" id="githubGrid" style="display:none;"></div>
+
+            <div class="github-error" id="githubError" style="display:none;">
+                <p>⚠ Could not load repositories. <button class="retry-btn" id="retryGithub">Try again</button></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
+            <p class="contact-intro" data-en="Interested in collaboration, research opportunities, or just want to connect?" data-ar="هل أنتِ مهتم بالتعاون أو فرص البحث أو مجرد التواصل؟">Interested in collaboration, research opportunities, or just want to connect?</p>
+
+            <form class="contact-form" id="contactForm" novalidate>
+
+                <div class="form-group">
+                    <label for="visitorName" data-en="Name" data-ar="الاسم">Name</label>
+                    <input type="text" id="visitorName" name="name"
+                           placeholder="Your name"
+                           data-en-placeholder="Your name"
+                           data-ar-placeholder="اسمك"
+                           autocomplete="name">
+                    <span class="field-error" id="visitorNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="your.email@example.com"
+                           data-en-placeholder="your.email@example.com"
+                           autocomplete="email">
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value=""          data-en="Select a topic..."       data-ar="اختر موضوعاً...">Select a topic...</option>
+                        <option value="collaboration" data-en="Collaboration"       data-ar="تعاون">Collaboration</option>
+                        <option value="research"   data-en="Research Opportunity"   data-ar="فرصة بحثية">Research Opportunity</option>
+                        <option value="internship" data-en="Internship"             data-ar="تدريب">Internship</option>
+                        <option value="general"    data-en="General Inquiry"        data-ar="استفسار عام">General Inquiry</option>
+                    </select>
+                    <span class="field-error" id="subjectError"></span>
+                </div>
+
+                <!--
+                    Message field — live word count + char count update on every keystroke.
+                    Both counters sit inside the <label> so they stay visually linked to the field.
+                -->
+                <div class="form-group">
+                    <label for="message">
+                        <span data-en="Message" data-ar="الرسالة">Message</span>
+                        <span class="message-counters" aria-hidden="true">
+                            <span class="word-count" id="wordCount">0 words</span>
+                            <span class="counter-divider">·</span>
+                            <span class="char-count" id="charCount">0 / 500</span>
+                        </span>
+                    </label>
+                    <span class="sr-only" id="wordCountAnnounce" aria-live="polite"></span>
+                    <textarea id="message" name="message" rows="5"
+                              placeholder="Your message here..."
+                              data-en-placeholder="Your message here..."
+                              data-ar-placeholder="رسالتك هنا..."
+                              maxlength="500"></textarea>
+                    <span class="field-error" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+            </form>
+
+            <div class="form-success" id="formSuccess" role="alert">
+                <p>✓ Thank you, <span id="senderName"></span>! Your message has been sent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="Ghala Alqahtani · <a href='mailto:ghalaq75@gmail.com'>ghalaq75@gmail.com</a> · Dhahran, Saudi Arabia" data-ar="غلا القحطاني · <a href='mailto:ghalaq75@gmail.com'>ghalaq75@gmail.com</a> · الظهران، المملكة العربية السعودية">Ghala Alqahtani · <a href="mailto:ghalaq75@gmail.com">ghalaq75@gmail.com</a> · Dhahran, Saudi Arabia</p>
+            <p data-en="© 2026 Built with passion for software engineering and innovation." >&copy; 2026 Built with passion for software engineering and innovation.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
