@@ -7,8 +7,7 @@ A fully responsive, production-quality personal portfolio website showcasing sof
 
 ## Live Demo
 
-> Deploy to GitHub Pages, Netlify, or Vercel and paste the link here.  
-> Example: `https://your-username.github.io/id-name-assignment4`
+https://ghalaq75.github.io/202280980-GhalaAlqahtani-assignment4/
 
 ---
 
